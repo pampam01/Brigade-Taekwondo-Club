@@ -1,0 +1,67 @@
+---
+interface Class {
+  title: string;
+  description: string;
+  icon: string;
+  belt: string;
+}
+
+const classes: Class[] = [
+  {
+    title: "Clases para Niños",
+    description: "A partir de los 4 años, orientadas a desarrollar coordinación, respeto y confianza.",
+    icon: "👶",
+    belt: "bg-gradient-to-r from-white to-yellow-300"
+  },
+  {
+    title: "Clases para Adolescentes",
+    description: "Fomentando disciplina, autocontrol y desarrollo físico.",
+    icon: "🧑",
+    belt: "bg-gradient-to-r from-yellow-500 to-green-500"
+  },
+  {
+    title: "Clases para Adultos",
+    description: "Entrenamiento integral que combina técnicas de defensa personal y desarrollo físico.",
+    icon: "👨",
+    belt: "bg-gradient-to-r from-blue-500 to-red-500"
+  },
+  {
+    title: "Entrenamiento de Competición",
+    description: "Para estudiantes interesados en competir a nivel local y nacional.",
+    icon: "🏆",
+    belt: "bg-gradient-to-r from-red-600 to-black"
+  },
+  {
+    title: "Clases Privadas",
+    description: "Sesiones personalizadas para estudiantes que buscan avanzar a su propio ritmo.",
+    icon: "👤",
+    belt: "bg-black"
+  },
+  {
+    title: "Entrenamiento Físico Avanzado",
+    description: "Clases intensivas de acondicionamiento físico y resistencia.",
+    icon: "💪",
+    belt: "bg-gradient-to-r from-black via-red-600 to-black"
+  }
+];
+---
+<section id="clases" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-red-600" data-aos="fade-up">수업</h2>
+    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Nuestras Clases</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {classes.map(({title, description, icon, belt}, index) => (
+        <div 
+          class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class={`h-1 ${belt} mb-4 rounded`}></div>
+          <div class="text-4xl mb-4">{icon}</div>
+          <h3 class="text-xl font-semibold mb-2">{title}</h3>
+          <p class="text-gray-600">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section></content>

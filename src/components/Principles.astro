@@ -1,0 +1,56 @@
+---
+const principles = [
+  {
+    title: "Cortesía",
+    korean: "예의",
+    description: "Respeto y consideración hacia los demás",
+    icon: "🙏"
+  },
+  {
+    title: "Integridad",
+    korean: "염치",
+    description: "Honestidad y valores morales fuertes",
+    icon: "⭐"
+  },
+  {
+    title: "Perseverancia",
+    korean: "인내",
+    description: "Constancia para alcanzar los objetivos",
+    icon: "💪"
+  },
+  {
+    title: "Autocontrol",
+    korean: "극기",
+    description: "Dominio de mente y cuerpo",
+    icon: "🧘"
+  },
+  {
+    title: "Espíritu Indomable",
+    korean: "백절불굴",
+    description: "Valentía y determinación ante los desafíos",
+    icon: "🔥"
+  }
+];
+---
+<section class="py-20 dobok-pattern">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-red-600" data-aos="fade-up">
+      태권도 정신
+    </h2>
+    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Principios del Taekwondo</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+      {principles.map(({title, korean, description, icon}, index) => (
+        <div 
+          class="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border-t-4 border-red-500"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="text-4xl mb-2">{icon}</div>
+          <div class="text-lg korean-title text-red-600 mb-1">{korean}</div>
+          <h3 class="text-xl font-semibold mb-2">{title}</h3>
+          <p class="text-gray-600">{description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section></content>
