@@ -15,8 +15,8 @@
       </button>
     </div>
     
-    <!-- Menú de navegación -->
-    <nav id="mobile-menu" class="hidden lg:flex">
+    <!-- Menú de navegación (versión escritorio) -->
+    <nav id="desktop-menu" class="hidden lg:flex">
       <ul class="flex gap-6">
         <li><a href="#inicio" class="text-gray-600 hover:text-red-600 transition">Inicio</a></li>
         <li><a href="#nosotros" class="text-gray-600 hover:text-red-600 transition">Nosotros</a></li>
@@ -26,10 +26,10 @@
     </nav>
   </div>
   
-  <!-- Menú móvil desplegable -->
-  <div id="mobile-menu-dropdown" class="lg:hidden hidden">
+  <!-- Menú móvil desplegable con transición -->
+  <div id="mobile-menu-dropdown" class="lg:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-sm shadow-sm">
     <nav>
-      <ul class="flex flex-col gap-4 px-4 py-6 bg-white shadow-md">
+      <ul class="flex flex-col gap-4 px-4 py-6">
         <li><a href="#inicio" class="text-gray-600 hover:text-red-600 transition">Inicio</a></li>
         <li><a href="#nosotros" class="text-gray-600 hover:text-red-600 transition">Nosotros</a></li>
         <li><a href="#clases" class="text-gray-600 hover:text-red-600 transition">Clases</a></li>
@@ -44,6 +44,7 @@
   const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
 
   hamburger.addEventListener('click', () => {
-    mobileMenuDropdown.classList.toggle('hidden');
+    mobileMenuDropdown.classList.toggle('max-h-0');
+    mobileMenuDropdown.classList.toggle('max-h-screen');
   });
 </script>
