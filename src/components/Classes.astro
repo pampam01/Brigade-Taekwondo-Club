@@ -23,13 +23,13 @@ const classes: Class[] = [
     title: "Clases para Adultos",
     description: "Entrenamiento integral que combina técnicas de defensa personal y desarrollo físico.",
     icon: "👨",
-    belt: "bg-gradient-to-r from-blue-500 to-red-500"
+    belt: "bg-gradient-to-r from-blue-500 to-blue-500"
   },
   {
     title: "Entrenamiento de Competición",
     description: "Para estudiantes interesados en competir a nivel local y nacional.",
     icon: "🏆",
-    belt: "bg-gradient-to-r from-red-600 to-black"
+    belt: "bg-gradient-to-r from-blue-600 to-black"
   },
   {
     title: "Clases Privadas",
@@ -41,13 +41,13 @@ const classes: Class[] = [
     title: "Entrenamiento Físico Avanzado",
     description: "Clases intensivas de acondicionamiento físico y resistencia.",
     icon: "💪",
-    belt: "bg-gradient-to-r from-black via-red-600 to-black"
+    belt: "bg-gradient-to-r from-black via-blue-600 to-black"
   }
 ];
 ---
 <section id="clases" class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-red-600" data-aos="fade-up">Nuestras Clases</h2>
+    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">Nuestras Clases</h2>
     <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">No te pierdas ninguna clase</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {classes.map(({title, description, icon, belt}, index) => (

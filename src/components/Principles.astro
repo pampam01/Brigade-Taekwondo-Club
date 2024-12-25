@@ -34,19 +34,19 @@ const principles = [
 ---
 <section class="py-20 dobok-pattern">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-red-600" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">
       Principios del Taekwondo
     </h2>
     <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Las bases de todo estudiante</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
       {principles.map(({title, korean, description, icon}, index) => (
         <div 
-          class="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border-t-4 border-red-500"
+          class="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border-t-4 border-blue-500"
           data-aos="fade-up"
           data-aos-delay={index * 100}
         >
           <div class="text-4xl mb-2">{icon}</div>
-          <div class="text-lg korean-title text-red-600 mb-1">{korean}</div>
+          <div class="text-lg korean-title text-blue-600 mb-1">{korean}</div>
           <h3 class="text-xl font-semibold mb-2">{title}</h3>
           <p class="text-gray-600">{description}</p>
         </div>
