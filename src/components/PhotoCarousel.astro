@@ -1,21 +1,25 @@
----
----
 <section class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Galería de Fotos</h2>
+    <!-- Modal/Lightbox -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
+      <button class="absolute top-4 right-4 text-white text-4xl" onclick="closeModal()">&times;</button>
+      <img id="modalImage" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain" />
+    </div>
+    <!-- Swiper Gallery -->
     <div class="swiper" data-aos="fade-up" data-aos-delay="200">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="/images/training1.jpg" alt="Entrenamiento" class="w-full h-[800px] object-cover rounded-lg" />
+          <img src="/images/training1.jpg" alt="Entrenamiento" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
         </div>
         <div class="swiper-slide">
-          <img src="/images/training2.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg" />
+          <img src="/images/training2.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
         </div>
         <div class="swiper-slide">
-          <img src="/images/training3.jpg" alt="Clase grupal" class="w-full h-[800px] object-cover rounded-lg" />
+          <img src="/images/training3.jpg" alt="Clase grupal" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
         </div>
         <div class="swiper-slide">
-          <img src="/images/training4.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg" />
+          <img src="/images/training4.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -32,6 +36,7 @@
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
 
+  // Inicializar Swiper
   new Swiper('.swiper', {
     modules: [Navigation, Pagination, Autoplay],
     slidesPerView: 1,
@@ -48,6 +53,35 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+  });
+
+  // Funciones para el modal
+  window.openModal = (imgSrc) => {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    modal.classList.remove('hidden');
+    modalImg.src = imgSrc;
+    document.body.style.overflow = 'hidden'; // Prevenir scroll
+  };
+
+  window.closeModal = () => {
+    const modal = document.getElementById('imageModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = ''; // Restaurar scroll
+  };
+
+  // Cerrar modal al hacer clic fuera de la imagen
+  document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+      closeModal();
+    }
+  });
+
+  // Cerrar modal con la tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
   });
 </script>
 
