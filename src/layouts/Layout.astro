@@ -4,17 +4,48 @@ interface Props {
 }
 
 const { title } = Astro.props;
+const siteName = "Escuela de Taekwondo - Taeguk";
+const description = "Escuela de Taekwondo Taeguk - Formando campeones en la vida a través de la disciplina, el respeto y el desarrollo personal.";
+const phoneNumber = "tel: 0975 922925"; // Reemplaza con tu número real
+const imageUrl = "https://taeguk.vercel.app/images/rodolfo-sabon.jpg"; // Reemplaza con la URL real de tu imagen
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Escuela de Taekwondo Taeguk - Formando campeones en la vida a través de la disciplina, el respeto y el desarrollo personal." />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Metadata básica -->
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="telephone" content={phoneNumber} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content="Taekwondo Taeguk - Imagen de la escuela" />
+    <meta property="og:locale" content="es_CL" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content="Taekwondo Taeguk - Imagen de la escuela" />
+    
+    <!-- WhatsApp preview -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Otros recursos -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
   </head>
@@ -72,6 +103,5 @@ const { title } = Astro.props;
                       radial-gradient(circle, transparent 35%, #f8fafc 36%);
     background-size: 80px 80px;
     background-position: center;
-}
-
-</style></content>
+  }
+</style>
