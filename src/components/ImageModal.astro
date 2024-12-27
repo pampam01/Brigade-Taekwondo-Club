@@ -1,0 +1,96 @@
+---
+interface Props {
+  images: {
+    url: string;
+    alt: string;
+    titulo: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 flex items-center justify-center">
+  <div class="relative max-w-6xl w-full mx-4">
+    <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl hover:text-gray-300 z-50">×</button>
+    
+    <button id="prevImage" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300">
+      &#8249;
+    </button>
+    
+    <button id="nextImage" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300">
+      &#8250;
+    </button>
+
+    <div id="modalImage" class="flex items-center justify-center">
+      <img src="" alt="" class="max-h-[90vh] max-w-full object-contain" />
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ images }}>
+  let currentImageIndex = 0;
+  const modal = document.getElementById('imageModal');
+  const modalImg = modal.querySelector('img');
+  const closeBtn = document.getElementById('closeModal');
+  const prevBtn = document.getElementById('prevImage');
+  const nextBtn = document.getElementById('nextImage');
+  
+  // Add click listeners to all gallery images
+  document.querySelectorAll('.gallery-image').forEach((img, index) => {
+    img.addEventListener('click', () => {
+      currentImageIndex = index;
+      showImage(currentImageIndex);
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function showImage(index) {
+    modalImg.src = images[index].url;
+    modalImg.alt = images[index].alt;
+  }
+
+  closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    showImage(currentImageIndex);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    showImage(currentImageIndex);
+  });
+
+  // Close modal when clicking outside the image
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('hidden')) return;
+    
+    switch(e.key) {
+      case 'ArrowLeft':
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        showImage(currentImageIndex);
+        break;
+      case 'ArrowRight':
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+        break;
+      case 'Escape':
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        break;
+    }
+  });
+</script>

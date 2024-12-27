@@ -1,51 +1,57 @@
-<header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-2">
-      <img src="/logo.svg" alt="Taeguk Logo" class="w-12 h-12" />
-      <div class="text-xl font-bold text-blue-600 korean-title">TaeGuk</div>
+---
+import Banner from './Banner.astro';
+---
+
+<div class="relative">
+  <Banner 
+    message="¡Bienvenidos a nuestra escuela de Taekwondo! Las Clases comenzaran el 14 de enero 2025, los esperamos!!!" 
+    type="info"
+  />
+  <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-40 transition-all duration-300" style="top: var(--banner-height, 0)">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <img src="/logo.svg" alt="Taeguk Logo" class="w-12 h-12" />
+        <div class="text-xl font-bold text-blue-600 korean-title">TaeGuk</div>
+      </div>
+      
+      <div class="lg:hidden">
+        <button id="hamburger" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <nav id="desktop-menu" class="hidden lg:flex">
+        <ul class="flex gap-6">
+          <li><a href="/#inicio" class="text-gray-800 hover:text-blue-800 transition">Inicio</a></li>
+          <li><a href="/#nosotros" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a></li>
+          <li><a href="/#clases" class="text-gray-600 hover:text-blue-600 transition">Clases</a></li>
+          <li><a href="/galeria" class="text-gray-600 hover:text-blue-600 transition">Galeria</a></li>
+          <li><a href="/#contacto" class="text-gray-600 hover:text-blue-600 transition">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
     
-    <!-- Botón del menú hamburguesa -->
-    <div class="lg:hidden">
-      <button id="hamburger" class="text-gray-600 hover:text-blue-600 focus:outline-none">
-        <!-- Ícono de hamburguesa -->
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
+    <div id="mobile-menu-dropdown" class="lg:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-sm shadow-sm">
+      <nav>
+        <ul class="flex flex-col gap-4 px-4 py-6">
+          <li><a href="#inicio" class="text-gray-600 hover:text-blue-600 transition">Inicio</a></li>
+          <li><a href="#nosotros" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a></li>
+          <li><a href="#clases" class="text-gray-600 hover:text-blue-600 transition">Clases</a></li>
+          <li><a href="#contacto" class="text-gray-600 hover:text-blue-600 transition">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
-    
-    <!-- Menú de navegación (versión escritorio) -->
-    <nav id="desktop-menu" class="hidden lg:flex">
-      <ul class="flex gap-6">
-        <li><a href="/#inicio" class="text-gray-800 hover:text-blue-800 transition">Inicio</a></li>
-        <li><a href="/#nosotros" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a></li>
-        <li><a href="/#clases" class="text-gray-600 hover:text-blue-600 transition">Clases</a></li>
-        <li><a href="/galeria" class="text-gray-600 hover:text-blue-600 transition">Galeria</a></li>
-        <li><a href="/#contacto" class="text-gray-600 hover:text-blue-600 transition">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-  
-  <!-- Menú móvil desplegable con transición -->
-  <div id="mobile-menu-dropdown" class="lg:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-sm shadow-sm">
-    <nav>
-      <ul class="flex flex-col gap-4 px-4 py-6">
-        <li><a href="#inicio" class="text-gray-600 hover:text-blue-600 transition">Inicio</a></li>
-        <li><a href="#nosotros" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a></li>
-        <li><a href="#clases" class="text-gray-600 hover:text-blue-600 transition">Clases</a></li>
-        <li><a href="#contacto" class="text-gray-600 hover:text-blue-600 transition">Contacto</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
+</div>
 
 <script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenuDropdown = document.getElementById('mobile-menu-dropdown');
 
-  hamburger.addEventListener('click', () => {
-    mobileMenuDropdown.classList.toggle('max-h-0');
-    mobileMenuDropdown.classList.toggle('max-h-screen');
+  hamburger?.addEventListener('click', () => {
+    mobileMenuDropdown?.classList.toggle('max-h-0');
+    mobileMenuDropdown?.classList.toggle('max-h-screen');
   });
 </script>

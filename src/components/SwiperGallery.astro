@@ -1,0 +1,70 @@
+---
+interface Props {
+  images: {
+    url: string;
+    alt: string;
+    titulo: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="swiper" data-aos="fade-up" data-aos-delay="200">
+  <div class="swiper-wrapper">
+    {
+      images.map((image, index) => (
+        <div class="swiper-slide">
+          <img
+            src={image.url}
+            alt={image.alt}
+            class="w-full h-[800px] object-cover rounded-lg cursor-pointer gallery-image"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  new Swiper('.swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+<style>
+  .swiper {
+    width: 100%;
+    height: 800px;
+  }
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: #2563eb;
+  }
+  :global(.swiper-pagination-bullet-active) {
+    background: #2563eb;
+  }
+</style>

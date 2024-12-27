@@ -1,106 +1,55 @@
+---
+import ImageModal from './ImageModal.astro';
+import SwiperGallery from './SwiperGallery.astro';
+
+const images = [
+  {
+    url: '/images/training6.jpeg',
+    alt: 'Competencia',
+    titulo: 'Competencia'
+  },
+  {
+    url: '/images/training1.jpg',
+    alt: 'Entrenamiento',
+    titulo: 'Entrenamiento'
+  },
+  {
+    url: '/images/training2.jpg',
+    alt: 'Competencia',
+    titulo: 'Competencia'
+  },
+  {
+    url: '/images/training3.jpg',
+    alt: 'Clase grupal',
+    titulo: 'Clase grupal'
+  },
+  {
+    url: '/images/training4.jpg',
+    alt: 'Competencia',
+    titulo: 'Competencia'
+  },
+  {
+    url: '/images/training5.jpg',
+    alt: 'Competencia',
+    titulo: 'Competencia'
+  }
+];
+---
+
 <section class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Galería de Fotos</h2>
-    <!-- Modal/Lightbox -->
-    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden flex items-center justify-center">
-      <button class="absolute top-4 right-4 text-white text-4xl" onclick="closeModal()">&times;</button>
-      <img id="modalImage" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain" />
-    </div>
-    <!-- Swiper Gallery -->
-    <div class="swiper" data-aos="fade-up" data-aos-delay="200">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="/images/training6.jpeg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
-        </div>
-        <div class="swiper-slide">
-          <img src="/images/training1.jpg" alt="Entrenamiento" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
-        </div>
-        <div class="swiper-slide">
-          <img src="/images/training2.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
-        </div>
-        <div class="swiper-slide">
-          <img src="/images/training3.jpg" alt="Clase grupal" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
-        </div>
-        <div class="swiper-slide">
-          <img src="/images/training4.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
-        </div>
-        <div class="swiper-slide">
-          <img src="/images/training5.jpg" alt="Competencia" class="w-full h-[800px] object-cover rounded-lg cursor-pointer" onclick="openModal(this.src)" />
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+    <SwiperGallery images={images} />
+    <ImageModal images={images} />
+    <div class="text-center mt-12">
+      <a 
+        href="/galeria" 
+        class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        Ver más fotos
+      </a>
     </div>
   </div>
 </section>
-
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import 'swiper/css/pagination';
-
-  // Inicializar Swiper
-  new Swiper('.swiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
-
-  // Funciones para el modal
-  window.openModal = (imgSrc) => {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    modal.classList.remove('hidden');
-    modalImg.src = imgSrc;
-    document.body.style.overflow = 'hidden'; // Prevenir scroll
-  };
-
-  window.closeModal = () => {
-    const modal = document.getElementById('imageModal');
-    modal.classList.add('hidden');
-    document.body.style.overflow = ''; // Restaurar scroll
-  };
-
-  // Cerrar modal al hacer clic fuera de la imagen
-  document.getElementById('imageModal').addEventListener('click', (e) => {
-    if (e.target.id === 'imageModal') {
-      closeModal();
-    }
-  });
-
-  // Cerrar modal con la tecla ESC
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  });
-</script>
-
-<style>
-  .swiper {
-    width: 100%;
-    height: 800px;
-  }
-  :global(.swiper-button-next),
-  :global(.swiper-button-prev) {
-    color: #2563eb;
-  }
-  :global(.swiper-pagination-bullet-active) {
-    background: #2563eb;
-  }
-</style>
