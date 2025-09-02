@@ -4,14 +4,14 @@ import Banner from './Banner.astro';
 
 <div class="relative">
   <Banner 
-    message="¡Bienvenidos a nuestra escuela de Taekwondo! los esperamos!!!" 
+    message="Selamat datang di sekolah Taekwondo kami! Kami tunggu kedatangan Anda!!!" 
     type="info"
   />
   <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-40 transition-all duration-300" style="top: var(--banner-height, 0)">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="/" class="flex items-center gap-2">
-        <img src="/logo.svg" alt="Taeguk Logo" class="w-12 h-12" />
-        <div class="text-xl font-bold text-blue-600 korean-title">TaeGuk</div>
+        <img src="/images/logo.png" alt="Logo" class="w-12 h-12" />
+        <div class="text-xl font-bold text-blue-600 korean-title">Taekwondo</div>
       </a>
       <div class="lg:hidden">
         <button id="hamburger" class="text-gray-600 hover:text-blue-600 focus:outline-none">
@@ -23,11 +23,11 @@ import Banner from './Banner.astro';
       
       <nav id="desktop-menu" class="hidden lg:flex">
         <ul class="flex gap-6">
-          <li><a href="/#inicio" class="text-gray-800 hover:text-blue-800 transition">Inicio</a></li>
-          <li><a href="/#nosotros" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a></li>
-          <li><a href="/#clases" class="text-gray-600 hover:text-blue-600 transition">Clases</a></li>
-          <li><a href="/galeria" class="text-gray-600 hover:text-blue-600 transition">Galeria</a></li>
-          <li><a href="/#contacto" class="text-gray-600 hover:text-blue-600 transition">Contacto</a></li>
+          <li><a href="/#tentang" class="text-gray-600 font-bold hover:text-blue-800 transition">Tentang Kami</a></li>
+          <li><a href="/#prinsip" class="text-gray-600 font-bold hover:text-blue-800 transition">Prinsip</a></li>
+          <li><a href="/#kelas" class="text-gray-600 font-bold hover:text-blue-800 transition">Kelas</a></li>
+          <li><a href="/galeri" class="text-gray-600 font-bold hover:text-blue-800 transition">Galeri</a></li>
+          <li><a href="/#contact" class="text-gray-600 font-bold hover:text-blue-800 transition">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -35,11 +35,11 @@ import Banner from './Banner.astro';
     <div id="mobile-menu-dropdown" class="lg:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-sm shadow-sm">
       <nav>
         <ul class="flex flex-col gap-4 px-4 py-6">
-          <li><a href="/#inicio" class="text-gray-800 hover:text-blue-800 transition">Inicio</a></li>
-          <li><a href="/#nosotros" class="text-gray-600 hover:text-blue-600 transition">Nosotros</a></li>
-          <li><a href="/#clases" class="text-gray-600 hover:text-blue-600 transition">Clases</a></li>
-          <li><a href="/galeria" class="text-gray-600 hover:text-blue-600 transition">Galeria</a></li>
-          <li><a href="/#contacto" class="text-gray-600 hover:text-blue-600 transition">Contacto</a></li>
+          <li><a href="/#tentang" class="text-gray-600 font-bold hover:text-blue-800 transition">tentang kami</a></li>
+          <li><a href="/#prinsip" class="text-gray-600 font-bold hover:text-blue-800 transition">prinsip</a></li>
+          <li><a href="/#kelas" class="text-gray-600 font-bold hover:text-blue-800 transition">kelas</a></li>
+          <li><a href="/galeri" class="text-gray-600 font-bold hover:text-blue-800 transition">Galeri</a></li>
+          <li><a href="/#contact" class="text-gray-600 font-bold hover:text-blue-800 transition">Contact</a></li>
         </ul>
       </nav>
     </div>

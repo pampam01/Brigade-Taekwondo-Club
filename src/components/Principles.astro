@@ -1,45 +1,47 @@
 ---
-const principles = [
+const prinsip = [
   {
-    title: "Cortesía",
-    korean: "예의",
-    description: "Respeto y consideración hacia los demás",
+    title: "Sopan Santun",
+    korean: "respect",
+    description: "Rasa hormat dan tenggang rasa terhadap orang lain",
     icon: "🙏"
   },
   {
-    title: "Integridad",
-    korean: "염치",
-    description: "Honestidad y valores morales fuertes",
+    title: "Integritas",
+    korean: "integrity",
+    description: "Kejujuran dan nilai-nilai moral yang kuat",
     icon: "⭐"
   },
   {
-    title: "Perseverancia",
-    korean: "인내",
-    description: "Constancia para alcanzar los objetivos",
+    title: "Kegigihan",
+    korean: "patience",
+    description: "Ketekunan untuk mencapai tujuan",
     icon: "💪"
   },
   {
-    title: "Autocontrol",
-    korean: "극기",
-    description: "Dominio de mente y cuerpo",
+    title: "Pengendalian Diri",
+    korean: "self-control",
+    description: "Penguasaan pikiran dan tubuh",
     icon: "🧘"
   },
   {
-    title: "Espíritu Indomable",
-    korean: "백절불굴",
-    description: "Valentía y determinación ante los desafíos",
+    title: "Semangat Pantang Menyerah",
+    korean: "never-give-up",
+    description: "Keberanian dan tekad dalam menghadapi tantangan",
     icon: "🔥"
   }
 ];
 ---
-<section class="py-20 dobok-pattern">
+
+
+<section class="py-20 dobok-pattern" id="prinsip">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">
-      Principios del Taekwondo
+      Prinsip-Prinsip Taekwondo
     </h2>
-    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Las bases de todo estudiante</h3>
+    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Dasar-dasar bagi setiap siswa</h3>
     <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-      {principles.map(({title, korean, description, icon}, index) => (
+      {prinsip.map(({title, korean, description, icon}, index) => (
         <div 
           class="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-2 border-t-4 border-blue-500"
           data-aos="fade-up"
@@ -53,4 +55,4 @@ const principles = [
       ))}
     </div>
   </div>
-</section></content>
+</section>

@@ -1,56 +1,58 @@
 ---
-interface Class {
+// Nama interface diubah menjadi 'Kelas' untuk Bahasa Indonesia
+interface Kelas {
   title: string;
   description: string;
   icon: string;
   belt: string;
 }
 
-const classes: Class[] = [
+// Nama variabel diubah menjadi 'daftarKelas'
+const daftarKelas: Kelas[] = [
   {
-    title: "Clases para Niños",
-    description: "A partir de los 4 años, orientadas a desarrollar coordinación, respeto y confianza.",
+    title: "Kelas Anak-Anak",
+    description: "Mulai dari usia 4 tahun, bertujuan untuk mengembangkan koordinasi, rasa hormat, dan kepercayaan diri.",
     icon: "👶",
     belt: "bg-gradient-to-r from-white to-yellow-300"
   },
   {
-    title: "Clases para Adolescentes",
-    description: "Fomentando disciplina, autocontrol y desarrollo físico.",
+    title: "Kelas Remaja",
+    description: "Mendorong disiplin, pengendalian diri, dan perkembangan fisik.",
     icon: "🧑",
     belt: "bg-gradient-to-r from-yellow-500 to-green-500"
   },
   {
-    title: "Clases para Adultos",
-    description: "Entrenamiento integral que combina técnicas de defensa personal y desarrollo físico.",
+    title: "Kelas Dewasa",
+    description: "Pelatihan komprehensif yang menggabungkan teknik bela diri dan pengembangan fisik.",
     icon: "👨",
     belt: "bg-gradient-to-r from-blue-500 to-blue-500"
   },
   {
-    title: "Entrenamiento de Competición",
-    description: "Para estudiantes interesados en competir a nivel local y nacional.",
+    title: "Latihan Kompetisi",
+    description: "Bagi siswa yang tertarik untuk berkompetisi di tingkat lokal dan nasional.",
     icon: "🏆",
     belt: "bg-gradient-to-r from-blue-600 to-black"
   },
   {
-    title: "Clases Privadas",
-    description: "Sesiones personalizadas para estudiantes que buscan avanzar a su propio ritmo.",
+    title: "Kelas Privat",
+    description: "Sesi personal untuk siswa yang ingin maju sesuai dengan kecepatan mereka sendiri.",
     icon: "👤",
     belt: "bg-black"
   },
   {
-    title: "Entrenamiento Físico Avanzado",
-    description: "Clases intensivas de acondicionamiento físico y resistencia.",
+    title: "Latihan Fisik Lanjutan",
+    description: "Kelas intensif untuk pengkondisian fisik dan daya tahan.",
     icon: "💪",
     belt: "bg-gradient-to-r from-black via-blue-600 to-black"
   }
 ];
 ---
-<section id="clases" class="py-20 bg-gray-50">
+<section id="kelas" class="py-20 bg-gray-50">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">Nuestras Clases</h2>
-    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">No te pierdas ninguna clase</h3>
+    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">Kelas Kami</h2>
+    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Temukan kelas yang tepat untuk Anda</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {classes.map(({title, description, icon, belt}, index) => (
+      {daftarKelas.map(({title, description, icon, belt}, index) => (
         <div 
           class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2"
           data-aos="fade-up"
@@ -64,4 +66,4 @@ const classes: Class[] = [
       ))}
     </div>
   </div>
-</section></content>
+</section>

@@ -1,0 +1,86 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import ImageModal from '../components/ImageModal.astro';
+
+const imagenes = [
+  {
+    url: '/images/training1.jpeg',
+    alt: 'Clase Taekwondo Jovenes',
+    titulo: 'Clase Taekwondo Jovenes'
+  },
+  {
+    url: '/images/training2.jpeg',
+    alt: 'Clase Taekwondo',
+    titulo: 'Clase Taekwondo'
+  },
+  {
+    url: '/images/training3.jpeg',
+    alt: 'Clase Taekwondo',
+    titulo: 'Clase Taekwondo'
+  },
+  {
+    url: '/images/training4.jpeg',
+    alt: 'Clase Taekwondo',
+    titulo: 'Imagen 4'
+  },
+  {
+    url: '/images/training5.jpeg',
+    alt: 'Practica Salto',
+    titulo: 'Practica Salto'
+  },
+  {
+    url: '/images/training6.jpeg',
+    alt: 'Titulo 3er Dan',
+    titulo: 'Titulo 3er Dan'
+  },
+  {
+    url: '/images/g1.jpeg',
+    alt: 'Rodolfo Descanso',
+    titulo: 'Rodolfo'
+  },
+  {
+    url: '/images/g2.jpeg',
+    alt: 'Patada',
+    titulo: 'Patada'
+  },
+  {
+    url: '/images/pelatih.jpeg',
+    alt: 'Salto',
+    titulo: 'Salto'
+  },
+  {
+    url: '/images/banner.jpeg',
+    alt: 'Postura',
+    titulo: 'Postura'
+  },
+  {
+    url: '/images/banner1.jpeg',
+    alt: 'Postura 1',
+    titulo: 'Postura 1'
+  },
+];
+---
+
+<Layout title="Taekwondo">
+  <Header />
+  <main>
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 pt-32">
+      {imagenes.map((imagen, index) => (
+        <div class="bg-white rounded-lg overflow-hidden shadow-lg cursor-pointer" 
+        >
+          <img 
+            src={imagen.url} 
+            alt={imagen.alt} 
+            class="w-full h-64 object-cover gallery-image" 
+          />
+        </div>
+      ))}
+    </section>
+  </main>
+  <ImageModal images={imagenes} />
+  <Footer />
+  <WhatsAppButton />
+</Layout>

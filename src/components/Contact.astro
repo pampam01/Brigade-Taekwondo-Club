@@ -1,21 +1,21 @@
-<section id="contacto" class="py-20 bg-white">
+<section id="contact" class="py-20 bg-white">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">Contacto</h2>
-    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">¿Tiene una consulta?</h3>
+    <h2 class="text-3xl font-bold text-center mb-4 korean-title text-blue-600" data-aos="fade-up">Kontak</h2>
+    <h3 class="text-xl text-center mb-12 text-gray-600" data-aos="fade-up">Ada yang ingin ditanyakan?</h3>
     <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="space-y-6">
         <div>
-          <h3 class="text-xl font-semibold mb-2">Ubicación</h3>
-          <p class="text-gray-600">Entre Profesor Gabriel Orue y Carlos Antonio López, Caaguazú, Paraguay</p>
+          <h3 class="text-xl font-semibold mb-2">Lokasi</h3>
+          <p class="text-gray-600">depan kantor walikota , kota baru</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-2">Contacto</h3>
-          <p class="text-gray-600">Teléfono: 0975 922925</p>
+          <h3 class="text-xl font-semibold mb-2">Kontak</h3>
+          <p class="text-gray-600">Telepon: 081632759435</p>
         </div>
         <div>
-          <h3 class="text-xl font-semibold mb-2">Redes Sociales</h3>
+          <h3 class="text-xl font-semibold mb-2">Media Sosial</h3>
           <div class="flex gap-4">
-            <a href="https://www.instagram.com/tae_guktaekwondo" target="_blank" class="text-blue-600 hover:text-blue-700">
+            <a href="https://www.instagram.com/brigade_taekwondo_club?igsh=MWo4a2t1MzFtMWxkcQ==" target="_blank" class="text-blue-600 hover:text-blue-700">
               Instagram
             </a>
           </div>
@@ -23,15 +23,15 @@
       </div>
       <form id="contactForm" class="space-y-4 bg-gray-50 p-6 rounded-lg shadow-md">
         <div>
-          <label class="block text-sm font-medium text-gray-700">Nombre</label>
-          <input type="text" name="name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required />
+          <label class="block text-sm font-medium text-gray-700">Nama</label>
+          <input type="text" name="name" class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required />
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700">Mensaje</label>
-          <textarea name="message" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required></textarea>
+          <label class="block text-sm font-medium text-gray-700">Pesan</label>
+          <textarea name="message" rows="6" class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" required></textarea>
         </div>
         <button type="submit" class="w-full bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">
-          Enviar Mensaje
+          Kirim Pesan
         </button>
       </form>
     </div>
@@ -39,19 +39,20 @@
 </section>
 
 <script>
-  const form = document.getElementById('contactForm') as HTMLFormElement; 
+  const form = document.getElementById('contactForm');
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const formData = new FormData(form);
-    const data: Record<string, string> = {}; 
+    const formData = new FormData(form as HTMLFormElement);
+    const data = {};
     formData.forEach((value, key) => {
-      data[key] = value as string;
-    }); 
+      data[key] = value;
+    });
 
-    const whatsappNumber = "+595975922925";
-    const whatsappMessage = `Hola, me gustaría obtener información sobre las clases de Taekwondo. Mi Nombre es ${data['name']}, Mensaje: ${data['message']}`;
+    const whatsappNumber = "+6281632759435";
+    // Pesan WhatsApp diubah ke Bahasa Indonesia
+    const whatsappMessage = `Halo, saya ingin mendapatkan informasi mengenai Brigade Taekwondo Club. Nama saya ${data['name']}, Pesan: ${data['message']}`;
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, "_blank");
 
